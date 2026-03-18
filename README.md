@@ -25,4 +25,4 @@ fonts - used poppins from google across the entire website with size restriction
 https://drive.google.com/file/d/1BSifLzfG5teAN673s4P_CoLnaKmtE72g/view?usp=sharing
 
 **GitHub deployed link**
-git@github.com:EMastII/se_project_spots.git
+[git@github.com:EMastII/se_project_spots.git](https://emastii.github.io/se_project_spots/)
