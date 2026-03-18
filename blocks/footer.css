@@ -3,6 +3,10 @@
   width: 100%;
   background-color: #fcf5e5;
   border: none;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  color: #212121b2;
 }
 
 .footer__copyright {
@@ -11,5 +15,6 @@
   color: #212121;
   opacity: 70%;
   align-items: center;
-  padding: 60px;
+  padding: 60px 0;
+  margin: 0;
 }

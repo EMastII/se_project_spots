@@ -6,7 +6,8 @@
   width: 100%;
   object-fit: cover;
   display: block;
-  margin-top: 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
 }
 
 .card__content {
@@ -22,6 +23,10 @@
   border: none;
   background-color: transparent;
   opacity: 40%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .card__like-btn:hover {
@@ -29,17 +34,25 @@
 }
 .card__title {
   font-size: 20px;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 353px;
 }
 
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
+    border-radius: 8px;
   }
 
   .card__title {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 288px;
+    max-width: 235px;
   }
 }
