@@ -34,10 +34,10 @@ editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 newPostBtn.addEventListener("click", function () {
-  openModal(editProfileModal);
+  openModal(newPostModal);
 });
 newPostCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal);
+  closeModal(newPostModal);
 });
 
 function handleEditProfileSubmit(evt) {
