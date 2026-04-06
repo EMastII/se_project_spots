@@ -63,14 +63,15 @@
   font-size: 32px;
   margin: 0 0 32px;
   color: #212121;
+  font-weight: 500;
 }
 
 .modal__label {
   display: flex;
   flex-direction: column;
-  margin: 32px 0 32px;
+  margin: 0 0 32px;
   color: #212121;
-  opacity: 40%;
+  opacity: 70%;
 }
 
 .modal__input {
@@ -80,7 +81,7 @@
   min-height: 52px;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid (33, 33, 33, 0.4);
+  border: 1px solid rgba(33, 33, 33, 0.4);
   font-size: 20px;
   line-height: 1;
   padding: 16px 12px;
@@ -99,6 +100,7 @@
   min-height: 52px;
   cursor: pointer;
   transition: background-color 150ms ease;
+  color: #fcf5e5;
 }
 
 .modal__save-btn:hover {
@@ -126,5 +128,8 @@
   .modal__save-btn:hover {
     max-width: none;
     opacity: 80%;
+  }
+  .modal__title {
+    font-size: 20px;
   }
 }
