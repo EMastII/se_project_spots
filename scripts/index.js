@@ -54,6 +54,7 @@ function handleAddCardSubmit(evt) {
   console.log(newPostLinkInput.value);
   console.log(newPostNameInput.value);
   closeModal(newPostModal);
+  addCardFormElement.reset();
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
