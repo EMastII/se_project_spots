@@ -60,6 +60,8 @@ const cardTemplate = document
   .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
 
+previewModalCloseBtn.addEventListener("click", () => closeModal(previewModal));
+
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -84,10 +86,6 @@ function getCardElement(data) {
     previewImageEl.alt = data.name;
     openModal(previewModal);
   });
-
-  previewModalCloseBtn.addEventListener("click", () =>
-    closeModal(previewModal),
-  );
 
   return cardElement;
 }
