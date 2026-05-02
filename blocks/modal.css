@@ -84,7 +84,7 @@
 }
 
 .modal__label {
-  display: flex;
+  display: block;
   flex-direction: column;
   margin: 0 0 32px;
   color: #212121;
@@ -101,11 +101,24 @@
   border: 1px solid rgba(33, 33, 33, 0.4);
   font-size: 20px;
   line-height: 1;
-  padding: 16px 12px;
+  padding: 16px 12px 16px;
   color: #212121;
 }
+
 .modal__input::placeholder {
   color: #2121214d;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+.modal__error {
+  display: block;
+  color: rgba(255, 0, 0, 0.7);
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 8px;
 }
 
 .modal__save-btn {

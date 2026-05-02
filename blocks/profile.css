@@ -81,6 +81,10 @@
   cursor: pointer;
 }
 
+.profile__add-btn:disabled {
+  color: #212121;
+}
+
 .profile__add-btn:hover {
   opacity: 0.8;
 }
