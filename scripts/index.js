@@ -92,19 +92,19 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function handleEscapeKey(event) {
-  if (
-    event.key === "Escape" &&
-    newPostModal.classList.contains("modal_is-opened")
-  ) {
+function closeOnEsc(event) {
+  if (event.key !== "Escape") return;
+
+  if (newPostModal.classList.contains("modal_is-opened")) {
     closeModal(newPostModal);
   } else if (previewModal.classList.contains("modal_is-opened")) {
     closeModal(previewModal);
-  } else if (event.key === "Escape") {
+  } else {
     closeModal(editProfileModal);
   }
 }
-function handleOverlayClick(event) {
+
+function closeOnOverlay(event) {
   if (event.target === event.currentTarget) {
     closeModal(event.target);
   }
@@ -112,21 +112,22 @@ function handleOverlayClick(event) {
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
-  document.addEventListener("keydown", handleEscapeKey);
-  modal.addEventListener("click", handleOverlayClick);
+  document.addEventListener("keydown", closeOnEsc);
+  modal.addEventListener("click", closeOnOverlay);
 }
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
-  document.removeEventListener("keydown", handleEscapeKey);
-  modal.removeEventListener("click", handleOverlayClick);
+  document.removeEventListener("keydown", closeOnEsc);
+  modal.removeEventListener("click", closeOnOverlay);
 }
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  resetValidation(editProfileForm, [
-    editProfileNameInput,
-    editProfileDescriptionInput,
-  ]);
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings,
+  );
   openModal(editProfileModal);
 });
 editProfileCloseBtn.addEventListener("click", function () {
