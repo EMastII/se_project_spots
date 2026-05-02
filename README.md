@@ -8,7 +8,7 @@
 
 **Intro**
 
-This project is made to bring to gether creative minds to collaborate and build relationships globally without the clutter of big brand social media.
+This project is made to gather creative minds to collaborate and build relationships globally without the clutter of big brand social media.
 
 **Technology and Techniques**
 
@@ -22,7 +22,8 @@ fonts - used poppins from google across the entire website with size restriction
 ![alt text](<Screenshot 2026-03-18 114403.png>) ![alt text](<Screenshot 2026-03-18 114412.png>) ![alt text](<Screenshot 2026-03-18 114355.png>)
 
 **Project Pitch video link**
-https://drive.google.com/file/d/1BSifLzfG5teAN673s4P_CoLnaKmtE72g/view?usp=sharing
+https://www.loom.com/share/0234c1f4c03b4ae4a33e7963ae073076
+Loom is requesting subscription models to continue downloading the videos to Google Docs.
 
 **GitHub deployed link**
 [git@github.com:EMastII/se_project_spots.git](https://emastii.github.io/se_project_spots/)
