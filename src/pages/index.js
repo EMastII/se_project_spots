@@ -71,7 +71,7 @@ const avatarInput = avatarModal.querySelector("#avatar-name-input");
 const profileAvatarForm = document.querySelector("#profile__avatar-form");
 
 const deleteModal = document.querySelector("#delete-modal");
-const deleteForm = deleteModal.querySelector(".modal__form");
+const deleteForm = deleteModal.querySelector(".modal__form-delete");
 
 let selectedCard, selectedCardId;
 
@@ -164,7 +164,9 @@ editAvatarCloseBtn.addEventListener("click", function () {
 profileAvatarBtn.addEventListener("click", function () {
   openModal(avatarModal);
 });
-profileAvatarForm.addEventListener("submit", handleAvatarSubmit);
+profileAvatarForm.addEventListener("submit", function () {
+  handleAvatarSubmit;
+});
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
 

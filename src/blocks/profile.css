@@ -17,6 +17,7 @@
 .profile__avatar-container {
   position: relative;
   margin-right: 20px;
+  margin-bottom: 12px;
 }
 
 .profile__avatar-btn {
@@ -125,8 +126,19 @@
     padding-top: 20px;
   }
 
+  .profile__avatar-container {
+    margin-bottom: 0px;
+    margin-right: 0px;
+  }
+
   .profile__avatar-btn {
     visibility: visible;
+    color: 33, 33, 33, 0.6;
+    max-width: 23.34px;
+    max-height: 23.34px;
+    align-items: center;
+    top: 52px;
+    left: 52px;
   }
 
   .profile__avatar-btn::after {
@@ -134,7 +146,6 @@
   }
 
   .profile__avatar {
-    margin-bottom: 12px;
     height: 80px;
     width: 80px;
     border-radius: 8px;
