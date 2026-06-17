@@ -36,7 +36,7 @@ export const hasInvalidInput = (inputList) => {
 
 export const disableButton = (buttonEl, config) => {
   buttonEl.disabled = true;
-  buttonEl.classList.add("modal__save-btn_disabled");
+  buttonEl.classList.add(config.inactiveButtonClass);
 };
 
 export const toggleButtonState = (inputList, buttonEl, config) => {
@@ -44,7 +44,7 @@ export const toggleButtonState = (inputList, buttonEl, config) => {
     disableButton(buttonEl, config);
   } else {
     buttonEl.disabled = false;
-    buttonEl.classList.remove("modal__save-btn_disabled");
+    buttonEl.classList.remove(config.inactiveButtonClass);
   }
 };
 

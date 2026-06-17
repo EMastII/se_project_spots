@@ -12,7 +12,7 @@ import {
   setEventListeners,
 } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
-import { setButtonText } from "../utils/helpers.js";
+import { setButtonText, setDeleteButtonText } from "../utils/helpers.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -72,6 +72,10 @@ const profileAvatarForm = document.querySelector("#profile__avatar-form");
 
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form-delete");
+const deleteCloseBtn = deleteModal.querySelector(".modal__close-btn");
+const deleteCancelBtn = deleteModal.querySelector(
+  ".modal__save-btn_type_cancel",
+);
 
 let selectedCard, selectedCardId;
 
@@ -113,13 +117,9 @@ function getCardElement(data) {
 
 function closeOnEsc(event) {
   if (event.key !== "Escape") return;
-
-  if (newPostModal.classList.contains("modal_is-opened")) {
-    closeModal(newPostModal);
-  } else if (previewModal.classList.contains("modal_is-opened")) {
-    closeModal(previewModal);
-  } else {
-    closeModal(editProfileModal);
+  const openedPopup = document.querySelector(".modal_is-opened");
+  if (openedPopup) {
+    closeModal(openedPopup);
   }
 }
 
@@ -164,9 +164,14 @@ editAvatarCloseBtn.addEventListener("click", function () {
 profileAvatarBtn.addEventListener("click", function () {
   openModal(avatarModal);
 });
-profileAvatarForm.addEventListener("submit", function () {
-  handleAvatarSubmit;
+deleteCloseBtn.addEventListener("click", function () {
+  closeModal(deleteModal);
 });
+deleteCancelBtn.addEventListener("click", function () {
+  closeModal(deleteModal);
+});
+
+profileAvatarForm.addEventListener("submit", handleAvatarSubmit);
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
 
@@ -185,6 +190,7 @@ function handleLike(evt, id) {
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true);
 
   api
     .editUserInfo({
@@ -198,7 +204,7 @@ function handleEditProfileSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(submitBtn, true);
+      setButtonText(submitBtn, false);
       submitBtn.textContent = "Save";
     });
 }
@@ -209,7 +215,9 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log(evt.target);
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true);
+
   api
     .postNewCard({
       name: evt.target.caption.value,
@@ -221,12 +229,20 @@ function handleAddCardSubmit(evt) {
       closeModal(newPostModal);
       closeModal(addCardFormElement);
       addCardFormElement.reset();
-      // disableButton(newPostSaveBtn, settings); => .finally()
+      disableButton(newPostSaveBtn, settings);
+    })
+    .catch(console.error)
+    .finally(() => {
+      evt.target.reset();
+      setButtonText(submitBtn, false);
     });
 }
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  setButtonText(submitBtn, true);
+
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
@@ -234,7 +250,11 @@ function handleAvatarSubmit(evt) {
 
       closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      evt.target.reset();
+      setButtonText(submitBtn, false);
+    });
 }
 
 function handleDeleteCard(cardElement, cardId) {
@@ -245,13 +265,19 @@ function handleDeleteCard(cardElement, cardId) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  setDeleteButtonText(submitBtn, true);
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setDeleteButtonText(submitBtn, false);
+      submitBtn.textContent = "Delete";
+    });
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
