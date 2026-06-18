@@ -27,3 +27,7 @@ Loom is requesting subscription models to continue downloading the videos to Goo
 
 **GitHub deployed link**
 [git@github.com:EMastII/se_project_spots.git](https://emastii.github.io/se_project_spots/)
+
+https://emastii.github.io/se_project_spots/
+
+Project Demo: https://www.loom.com/share/dc8cc5b85fe04a998641c9b50068ceec
